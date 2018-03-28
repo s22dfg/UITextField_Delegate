@@ -10,16 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblHello: UILabel!
+    @IBOutlet weak var txtName: UITextField!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // textfield 도움말 표시
+        txtName.placeholder = "입력하세요"
+        // textfield 키보드 모드 설정
+        txtName.clearButtonMode = UITextFieldViewMode.whileEditing
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func btClick(_ sender: Any) {
+        
+        // textfield의 입력값을 label에 나타내기
+        lblHello.text = "HELLO " + txtName.text!
+        // textfield의 값을 초기화
+        txtName.text = ""
+        // textfidle의 값을 입력받고난 후 키보드 없애기
+        txtName.resignFirstResponder()
     }
-
-
 }
 
