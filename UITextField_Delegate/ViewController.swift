@@ -31,5 +31,15 @@ class ViewController: UIViewController {
         // textfidle의 값을 입력받고난 후 키보드 없애기
         txtName.resignFirstResponder()
     }
+    
+    // background view를 touch하면 키패드가 사라짐
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        txtName.resignFirstResponder()
+        view.backgroundColor = UIColor.yellow
+    }
+    
+    
 }
 
