@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         txtName.placeholder = "입력하세요"
         // textfield 키보드 모드 설정
         txtName.clearButtonMode = UITextFieldViewMode.whileEditing
+        txtName.delegate = self
     }
 
     @IBAction func btClick(_ sender: Any) {
@@ -35,11 +36,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // background view를 touch하면 키패드가 사라짐
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
         txtName.resignFirstResponder()
         view.backgroundColor = UIColor.yellow
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtName.resignFirstResponder()
+        view.backgroundColor = UIColor.green
+        return true
+    }
     
 }
 
