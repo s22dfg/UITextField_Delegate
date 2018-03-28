@@ -44,6 +44,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = UIColor.green
         return true
     }
+    // clear button을 눌렀을때 호출
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        txtName.backgroundColor = UIColor.darkGray
+        return true
+    }
     
 }
 
